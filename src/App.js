@@ -8,15 +8,15 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Setting from "./components/Setting/Setting";
 
-const App = () => {
+const App = (props) => {
     return (
         <div className="app-wrapper">
             <Header/>
             <NavBar/>
             <div className="app-wrapper-content">
                 <Routes>
-                    <Route path='/dialogs' element={<Dialogs/>}/>
-                    <Route path='/profile' element={<Profile/>}/>
+                    <Route exa path='/dialogs' element={<Dialogs />}/>
+                    <Route path='/profile' element={<Profile state={props.state} addPost={props.addPost}/>}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/setting' element={<Setting/>}/>
