@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./Dialogs.module.css";
 import {NavLink} from "react-router-dom";
-import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialog-reducer";
 
 const Dialog = (props) => {
     let path = "/dialogs/" + props.id
@@ -20,18 +19,18 @@ const Message = (props) => {
 
 const Dialogs = (props) => {
 
-    let dialogElements = props.state.dialogsPage.dialogs.map(d => <Dialog name={d.name} id={d.id} /> )
-    let messageElements = props.state.dialogsPage.messages.map(d => <Message message={d.message} id={d.id} /> )
-    let newMessageBody = props.state.dialogsPage.newMessageBody
+    let dialogElements = props.dialogsPage.dialogs.map(d => <Dialog name={d.name} id={d.id} /> )
+    let messageElements = props.dialogsPage.messages.map(d => <Message message={d.message} id={d.id} /> )
+    let newMessageBody = props.dialogsPage.newMessageBody
 
 
     let onSendMessageClick = () => {
-        props.store.dispatch(sendMessageCreator())
+        props.sendMessage()
     }
 
     let onNewMessageChange = (event) => {
         let body = event.target.value;
-        props.store.dispatch(updateNewMessageBodyCreator(body))
+        props.updateNewMessageBody(body)
     }
 
     return (
