@@ -6,7 +6,7 @@ import {follow, setUsers, unFollow} from "../../redux/users-reducer";
 
 let mapStateToProps = (state) => {
     return {
-        usersPage: state.usersPage
+        users: state.usersPage.users
     }
 }
 
@@ -18,7 +18,7 @@ let mapDispatchToProps = (dispatch) => {
         unfollow: (userId) => {
             dispatch(unFollow(userId))
         },
-        setUSers: (users) => {
+        setUsers: (users) => {
             dispatch(setUsers(users))
         }
 
