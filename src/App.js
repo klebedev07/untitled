@@ -4,10 +4,10 @@ import NavBar from "./components/Navbar/NavBar";
 import {Route, Routes} from "react-router-dom";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
-import Users from "./components/Users/Users"
 import Setting from "./components/Setting/Setting";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const App = (props) => {
     return (
@@ -17,7 +17,7 @@ const App = (props) => {
             <div className="app-wrapper-content">
                 <Routes>
                     <Route path='/dialogs' element={<DialogsContainer />}/>
-                    {/*<Route path='/profile' element={<Profile state={props.state} addPost={props.addPost}/>}/>*/}
+                    <Route path='/profile/:userId?' element={<ProfileContainer />}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/setting' element={<Setting/>}/>

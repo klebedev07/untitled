@@ -6,7 +6,7 @@ const NavBar = () => {
     return (
         <nav className={classes.nav}>
             <div className={classes.item}>
-                <NavLink to="/profile" activeStyle={{ color: 'red' }}>Profile</NavLink>
+                <NavLink to="/profile">Profile</NavLink>
             </div>
             <div className={classes.item}>
                 <NavLink to='/dialogs'>Dialogs</NavLink>
@@ -19,6 +19,9 @@ const NavBar = () => {
             </div>
             <div className={classes.item}>
                 <NavLink to='/setting'>Setting</NavLink>
+            </div>
+            <div className={classes.item}>
+                <NavLink to='/users'>Users</NavLink>
             </div>
         </nav>
     )
