@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./Dialogs.module.css";
-import {NavLink} from "react-router-dom";
+import {Navigate, NavLink} from "react-router-dom";
 
 const Dialog = (props) => {
     let path = "/dialogs/" + props.id
@@ -32,6 +32,11 @@ const Dialogs = (props) => {
         let body = event.target.value;
         props.updateNewMessageBody(body)
     }
+
+
+    if(props.auth.isAuth === false) return <Navigate to={"/login"} />
+
+
 
     return (
         <div className={classes.dialogs}>

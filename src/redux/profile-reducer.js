@@ -1,3 +1,5 @@
+import {userApi} from "../api/api";
+
 const SET_USER_INFO = "SET_USER_INFO"
 
 let initialState  = {
@@ -22,6 +24,13 @@ export const profileReducer = (state = initialState, action) => {
 
 }
 
-export const setUSerInfo = (userInfo) => ({type: SET_USER_INFO, userInfo: userInfo})
+export const setUserInfo = (userInfo) => ({type: SET_USER_INFO, userInfo: userInfo})
+
+export const getUserProfileThunk = (userId) => (dispatch) => {
+    userApi.getUserInfo(userId).then(resp => {
+        dispatch(setUserInfo(resp.data))
+    })
+}
+
 
 
